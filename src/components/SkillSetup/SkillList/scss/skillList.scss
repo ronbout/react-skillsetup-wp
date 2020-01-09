@@ -1,0 +1,50 @@
+.skills-list {
+	min-height: 100px;
+	margin: auto;
+	padding: 4px;
+	border: 1px solid gray;
+	text-align: left;
+	overflow: hidden;
+	overflow-y: auto;
+
+	// using the chip as a button in the skill
+	// list w/ opposite colors
+	.chip-btn.md-chip {
+		background: #616161;
+
+		span.md-chip-text {
+			color: #fff;
+		}
+	}
+
+	.chip-btn.md-chip.md-chip--hover {
+		background: #e0e0e0;
+
+		span.md-chip-text.md-chip-text--hover {
+			color: rgba(0, 0, 0, 0.87);
+		}
+	}
+
+	button {
+		margin: 6px;
+	}
+
+	.badge {
+		font-size: 1em;
+		padding: 0.75em 0.5em;
+		margin: 1em;
+	}
+
+	.del-skill-badge {
+		float: right;
+		margin-left: 2em;
+	}
+
+	.badge-edit {
+		cursor: pointer;
+	}
+
+	.btn-add-skill {
+		padding: 0.5rem 0.75rem;
+	}
+}

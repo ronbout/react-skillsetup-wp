@@ -1,0 +1,61 @@
+.person-search {
+  background: #eaeaea;
+  min-width: 402px;
+  max-height: 605px;
+  padding: 1em 2em 2em;
+}
+
+.person-search .div-select-container {
+  font-size: 14px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  padding: 0.2em 0.4em;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.person-search .div-select-container .div-select {
+  padding: 2px;
+  cursor: default;
+}
+
+.person-search .div-select-container .div-select.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.person-search legend {
+  display: block;
+  width: auto;
+  padding: 0 5px;
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: inherit;
+  border: auto;
+  border-bottom: none;
+}
+
+.person-search fieldset {
+  border: 2px groove threeDface;
+  padding: 5px 14px;
+}
+
+.person-search .div-select-container {
+  margin: 1em 0;
+  height: 200px;
+  text-align: left;
+}
+
+.person-search button {
+  margin: 0 12px;
+}
+/*# sourceMappingURL=personSearch.css.map */

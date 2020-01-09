@@ -1,0 +1,47 @@
+// first attempt at creating some standard css for he project
+// all classes will use the 'tsd-' prefix for namespacing
+
+.tsd-container {
+	width: 100%;
+	padding: 1em;
+	margin: auto;
+}
+
+.tsd-card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tsd-vdiv {
+	width: 2px;
+	margin: 20px 8px 0;
+	padding: 0 !important;
+	background: blue;
+}
+
+.tsd-light-hdiv {
+	height: 1px;
+	margin: 8px 20px;
+	padding: 0 10px !important;
+	background: #ddd;
+}
+
+.tsd-hdiv {
+	height: 2px;
+	margin: 8px 20px;
+	padding: 0 !important;
+	background: blue;
+}
+
+.tsd-bargraph {
+	height: 2em;
+	margin: 8px 8px;
+	padding: 0 !important;
+	background: white;
+	border: 1px solid black;
+}
+
+.tsd-bargraph-span {
+	height: 2em;
+	display: block;
+	background: gray;
+}

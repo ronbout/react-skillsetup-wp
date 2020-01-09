@@ -1,0 +1,17 @@
+$colors: (
+    primary: #32A862,
+    primary-light: lighten(#32A862, 50%),
+    secondary: lighten(#E9E06A, 20%),
+    tertiary: #505050,
+    action: #FD8F11
+);
+
+$fonts: (
+    primary: "helvetica"
+);
+
+$screens: (
+    desktop: 760px,
+    tablet: 400px,
+    mobile: 0px
+)

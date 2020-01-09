@@ -1,0 +1,28 @@
+ul.tab-list {
+  margin: 0;
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  li {
+    list-style: none;
+    flex-grow: 1;
+    margin: 4px 0 0;
+    padding: 8px 0px 0;
+    border: 1px solid black;
+    border-bottom: 0;
+    cursor: pointer;
+    height: 33px;
+    margin-bottom: -1px;
+    text-align: center;
+  }
+
+  li.active-tab {
+    background: #ddd;
+    border-bottom: none;
+    cursor: default;
+    height: 36px;
+    z-index: 20;
+  }
+}

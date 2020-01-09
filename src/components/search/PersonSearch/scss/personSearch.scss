@@ -1,0 +1,35 @@
+@import "../../../../scss/mixins";
+
+.person-search {
+	background: #eaeaea;
+	min-width: 402px;
+	max-height: 605px;
+	padding: 1em 2em 2em;
+
+	@include div-select(14px);
+
+	legend {
+		display: block;
+		width: auto;
+		padding: 0 5px;
+		margin-bottom: 0;
+		font-size: inherit;
+		line-height: inherit;
+		border: auto;
+		border-bottom: none;
+	}
+
+	fieldset {
+		border: 2px groove threeDface;
+		padding: 5px 14px;
+	}
+	.div-select-container {
+		margin: 1em 0;
+		height: 200px;
+		text-align: left;
+	}
+
+	button {
+		margin: 0 12px;
+	}
+}

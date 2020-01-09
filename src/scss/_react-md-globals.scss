@@ -1,0 +1,8 @@
+@import "../../node_modules/react-md/src/scss/react-md";
+
+$md-primary-color: $md-green-500;
+$md-secondary-color: $md-deep-purple-a-400;
+
+$md-btn-text-border-radius: 20px;
+
+@include react-md-everything;

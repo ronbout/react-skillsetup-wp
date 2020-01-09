@@ -1,0 +1,114 @@
+// mixins
+@import "../../../../scss/_mixins";
+
+.skill-container {
+  padding: 0 1em;
+
+  h2 {
+    margin: 10px 0 20px;
+    text-align: center;
+  }
+
+  form {
+    background: #ddd;
+    color: #212529;
+    border: 1px solid black;
+    padding: 0.5em 0 1em;
+
+    .form-group {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.fs-main {
+  justify-content: center;
+
+  section.skill-setup {
+    flex-grow: 2;
+    max-width: 810px;
+
+    div[class^="col-"] {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+  section.skill-search {
+    flex-grow: 1;
+    max-width: 320px;
+  }
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+
+    section.skill-search,
+    section.skill-setup {
+      width: 100%;
+      margin: auto;
+    }
+    section.skill-search {
+      margin: 2rem auto;
+    }
+  }
+}
+
+.fs-btn-container {
+  button {
+    margin: 0 1em;
+  }
+}
+
+section.skill-setup {
+  @include lg-form(15px);
+
+  label.col-form-label {
+    text-align: right;
+  }
+
+  textarea {
+    resize: none;
+    overflow: auto;
+  }
+
+  .skill-related-section {
+    margin: 0 0 24px;
+
+    div.row {
+      margin: 8px;
+    }
+    h2 {
+      margin-bottom: 4px;
+    }
+
+    h2 + p {
+      text-align: center;
+      padding-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .related-row {
+      margin: 0;
+
+      input {
+        margin: 0 4px;
+      }
+    }
+  }
+}
+
+.fs-btn-container {
+  margin: 20px 0 0 0;
+}
+
+.skill-tree-radio {
+  text-align: center;
+
+  input {
+    margin: 0 2rem;
+  }
+
+}
+
+.skill-li  {
+  margin-left: 1rem;
+}

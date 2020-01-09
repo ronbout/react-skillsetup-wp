@@ -1,0 +1,31 @@
+@import "./_settings";
+@import "./_functions";
+
+//this is exact copy of signin.scss, they shouldn't be duplicated, fix with shared class or import, figure that out
+
+.nav {
+    font-family: font(primary);
+}
+  
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav li {
+//    margin: 0 0.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav a:hover,
+.nav a:active {
+//    text-decoration: underline;
+    color: darken(color(secondary),10%);
+}

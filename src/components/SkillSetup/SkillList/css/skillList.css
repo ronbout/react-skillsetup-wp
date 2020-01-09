@@ -1,0 +1,49 @@
+.skills-list {
+  min-height: 100px;
+  margin: auto;
+  padding: 4px;
+  border: 1px solid gray;
+  text-align: left;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.skills-list .chip-btn.md-chip {
+  background: #616161;
+}
+
+.skills-list .chip-btn.md-chip span.md-chip-text {
+  color: #fff;
+}
+
+.skills-list .chip-btn.md-chip.md-chip--hover {
+  background: #e0e0e0;
+}
+
+.skills-list .chip-btn.md-chip.md-chip--hover span.md-chip-text.md-chip-text--hover {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.skills-list button {
+  margin: 6px;
+}
+
+.skills-list .badge {
+  font-size: 1em;
+  padding: 0.75em 0.5em;
+  margin: 1em;
+}
+
+.skills-list .del-skill-badge {
+  float: right;
+  margin-left: 2em;
+}
+
+.skills-list .badge-edit {
+  cursor: pointer;
+}
+
+.skills-list .btn-add-skill {
+  padding: 0.5rem 0.75rem;
+}
+/*# sourceMappingURL=skillList.css.map */

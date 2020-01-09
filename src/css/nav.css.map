@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAKA,AAAA,IAAI,CAAC;EACD,WAAW,ECGF,WAAW;CDFvB;;AAED,AAAA,IAAI,CAAC,EAAE,CAAC;EACJ,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CACtB;;AAMD,AAAA,IAAI,CAAC,CAAC,CAAC;EACH,eAAe,EAAE,IAAI;EACrB,KAAK,EAAE,KAAK;CACf;;AAED,AAAA,IAAI,CAAC,CAAC,AAAA,MAAM;AACZ,IAAI,CAAC,CAAC,AAAA,OAAO,CAAC;EAEV,KAAK,EAAE,OAA4B;CACtC",
+    "sources": [
+        "../scss/nav.scss",
+        "../scss/_settings.scss",
+        "../scss/_functions.scss"
+    ],
+    "names": [],
+    "file": "nav.css"
+}

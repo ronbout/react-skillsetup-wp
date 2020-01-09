@@ -1,0 +1,10 @@
+div.textarea label.tsd-label {
+	transform: translate(0, 1.5px) scale(0.75);
+	transform-origin: top left;
+	margin-left: 8px;
+	text-align: left;
+}
+
+.textarea textarea {
+	margin-left: 8px;
+}

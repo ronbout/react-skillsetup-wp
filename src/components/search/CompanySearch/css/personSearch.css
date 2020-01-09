@@ -1,0 +1,112 @@
+section.person-search {
+  background: #888;
+  color: #212529;
+  min-width: 362px;
+  max-height: 585px;
+  padding: 1em 2em 2em;
+  font-size: 14px;
+}
+
+section.person-search h1 {
+  font-size: 2.2em;
+  text-align: center;
+}
+
+section.person-search h2 {
+  font-size: 1.8em;
+  text-align: center;
+}
+
+section.person-search form,
+section.person-search div,
+section.person-search label,
+section.person-search input,
+section.person-search button,
+section.person-search select,
+section.person-search p {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+section.person-search input[type="checkbox"] {
+  position: relative;
+  margin: 0 1em;
+  height: 20px;
+  width: 20px;
+}
+
+section.person-search label,
+section.person-search p {
+  margin: 0;
+  padding: calc(0.375rem + 1px) 0;
+}
+
+section.person-search option {
+  font-size: 0.96em;
+  line-height: 1.45;
+  padding-bottom: 2px;
+}
+
+section.person-search option {
+  overflow-x: hidden;
+}
+
+section.person-search input,
+section.person-search select {
+  padding: 0.2em 0.4em;
+  height: auto;
+}
+
+section.person-search .div-select-container {
+  font-size: 14px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  padding: 0.2em 0.4em;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+section.person-search .div-select-container .div-select {
+  padding: 2px;
+}
+
+section.person-search .div-select-container .div-select.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+section.person-search legend {
+  display: block;
+  width: auto;
+  padding: 0 5px;
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: inherit;
+  border: auto;
+  border-bottom: none;
+}
+
+section.person-search fieldset {
+  border: 2px groove threeDface;
+  padding: 5px;
+}
+
+section.person-search .div-select-container {
+  margin: 1em 0;
+  height: 200px;
+  text-align: left;
+}
+
+section.person-search button {
+  margin: 0 12px;
+}
+/*# sourceMappingURL=personSearch.css.map */

@@ -1,0 +1,87 @@
+// mixins
+@mixin lg-form($em-size: 16px) {
+  font-size: $em-size;
+
+  // need to change rem to em so that the
+  // container styling is more modular
+  h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  form,
+  div,
+  label,
+  input,
+  button,
+  select,
+  p {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    margin: 0 1em;
+    height: 20px;
+    width: 20px;
+  }
+
+  label,
+  p {
+    margin: 0;
+    padding: calc(0.375rem + 1px) 0;
+  }
+
+  option {
+    font-size: 0.96em;
+    line-height: 1.45;
+    padding-bottom: 2px;
+  }
+
+  option {
+    overflow-x: hidden;
+  }
+
+  input,
+  select {
+    padding: 0.2em 0.4em;
+    height: auto;
+  }
+}
+
+@mixin div-select($em-size: 16px) {
+  // this will mimic a select/option list so that
+  // draggable div lists can be used
+
+  .div-select-container {
+    font-size: $em-size;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-transition: border-color 0.15s ease-in-out,
+      -webkit-box-shadow 0.15s ease-in-out;
+    -webkit-transition: border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    padding: 0.2em 0.4em;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .div-select {
+      padding: 2px;
+      cursor: default;
+    }
+    .div-select.selected {
+      background-color: #007bff;
+      color: white;
+    }
+  }
+}

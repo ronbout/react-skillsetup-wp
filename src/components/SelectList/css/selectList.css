@@ -1,0 +1,28 @@
+.div-select-container {
+  font-size: 14px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  padding: 0.2em 0.4em;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.div-select-container .div-select {
+  padding: 2px;
+  cursor: default;
+}
+
+.div-select-container .div-select.selected {
+  background-color: #007bff;
+  color: white;
+}
+/*# sourceMappingURL=selectList.css.map */

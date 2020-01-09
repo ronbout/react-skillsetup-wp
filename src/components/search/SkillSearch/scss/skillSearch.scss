@@ -1,0 +1,29 @@
+@import "../../../../scss/mixins";
+
+.skill-search {
+	background: #eaeaea;
+	min-width: 345px;
+	max-height: 585px;
+
+	.search-field-div {
+		padding: 12px 0;
+	}
+
+	@include div-select(14px);
+
+	.div-select-container {
+		transition-property: height;
+		transition-duration: 0.5s;
+		transition-timing-function: ease-in-out;
+		margin: 18px 0 8px;
+	}
+
+	#skill-search-row input {
+		display: inline-block;
+		width: 85%;
+	}
+
+	.search-skills-buttons button {
+		margin: 0 12px;
+	}
+}

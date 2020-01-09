@@ -1,0 +1,36 @@
+ul.tab-list {
+  margin: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+ul.tab-list li {
+  list-style: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 4px 0 0;
+  padding: 8px 0px 0;
+  border: 1px solid black;
+  border-bottom: 0;
+  cursor: pointer;
+  height: 33px;
+  margin-bottom: -1px;
+  text-align: center;
+}
+
+ul.tab-list li.active-tab {
+  background: #ddd;
+  border-bottom: none;
+  cursor: default;
+  height: 36px;
+  z-index: 20;
+}
+/*# sourceMappingURL=tabbedUI.css.map */
