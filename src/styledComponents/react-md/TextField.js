@@ -8,23 +8,14 @@ const TextField = ({
 	type,
 	errMsg,
 	label = "",
+	maxLength = null,
 	reqWarn = false,
+	onKeyDown,
 	...rest
 }) => {
-	// const style =
-	// 	reqWarn && value === ""
-	// 		? {
-	// 				inputStyle: { border: "2px solid red", padding: "8px" },
-	// 				className: "warning"
-	// 		  }
-	// 		: {};
 	const style =
 		reqWarn && value === ""
 			? {
-					// inputStyle: {
-					// 	border: "2px solid red",
-					// 	height: "48px !important"
-					// },
 					className: "warning",
 					rightIcon: (
 						<FontIcon
@@ -45,6 +36,18 @@ const TextField = ({
 					)
 			  }
 			: {};
+
+	const handleKeyDown = ev => {
+		if (maxLength !== null) {
+			const val = ev.target.value;
+			if (maxLength && !isNaN(maxLength) && val.length >= maxLength) {
+				ev.preventDefault();
+			}
+		}
+
+		onKeyDown && onKeyDown(ev);
+	};
+
 	return (
 		<MdTextField
 			name={name}
@@ -52,6 +55,9 @@ const TextField = ({
 			type={type}
 			label={label}
 			errorText={errMsg}
+			floating={true}
+			onKeyDown={handleKeyDown}
+			maxLength={maxLength}
 			{...style}
 			{...rest}
 		/>

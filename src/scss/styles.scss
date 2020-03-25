@@ -5,84 +5,227 @@
 
 // Other styling
 
+html {
+	height: 100%;
+}
 body {
-	height: 100%;
+	min-height: 100vh;
 	width: 100%;
-	font-family: "Montserrat", "sans-serif";
+	font-family: "Varela Round", "sans-serif";
 }
 
-.main-body {
-	padding: 0;
-}
-
-.tab-section {
-	padding: 1em 1em 3em;
-	margin-top: 0;
-	border: 1px solid #888;
-}
-
-.hero {
-	position: relative;
-	background-image: url("../assets/img/3sixD-hero.jpg");
-	background-position: center;
-	height: 80vh;
-	background-size: cover;
-	padding-top: 15vh;
-	padding-bottom: 20vh;
-	color: black;
-	font-family: Varela Round;
-}
-
-.hero .overlay {
-	position: absolute;
-	background-color: #212529;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	opacity: 0.3;
-}
-
-.hero h1 {
-	font-weight: bold;
-	font-size: 42px;
-	color: white;
-}
-
-.hero p {
-	width: 60%;
-	font-size: 1.3rem;
-	margin: auto;
-	font-weight: 700;
-	color: white;
-}
-
-.hero .learn {
-	margin-top: 1rem;
-}
-
-.login-link {
-	font-weight: bold;
-}
-
-.btn-question {
-	border-radius: 50%;
-}
-
-input {
-	padding: 0.275rem 0.25rem;
-	border-radius: 0.25rem;
-}
-
-/* form based css for use with material ui inputs */
-.tsd-form-row {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	margin-bottom: 0.5rem;
-
-	> div {
-		flex-grow: 1;
-		text-align: left;
+#tsd-react-root {
+	h1,
+	h2,
+	h3,
+	h4 {
+		font-family: "Varela Round", "sans-serif";
 	}
+
+	.main-body {
+		padding: 0;
+	}
+
+	.tab-section {
+		padding: 1em 1em 3em;
+		margin-top: 0;
+		border: 1px solid #888;
+	}
+
+	.hero {
+		position: relative;
+		background-image: url("../assets/img/3sixD-hero.jpg");
+		background-position: center;
+		height: 80vh;
+		background-size: cover;
+		padding-top: 15vh;
+		padding-bottom: 20vh;
+		color: black;
+		font-family: Varela Round;
+	}
+
+	.hero .overlay {
+		position: absolute;
+		background-color: #212529;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0.3;
+	}
+
+	.hero h1 {
+		font-weight: bold;
+		font-size: 42px;
+		color: white;
+	}
+
+	.hero p {
+		width: 60%;
+		font-size: 1.3rem;
+		margin: auto;
+		font-weight: 700;
+		color: white;
+	}
+
+	.hero .learn {
+		margin-top: 1rem;
+	}
+
+	.login-link {
+		font-weight: bold;
+	}
+
+	.btn-question {
+		border-radius: 50%;
+	}
+
+	input {
+		padding: 0.275rem 0.25rem;
+		border-radius: 0.25rem;
+	}
+
+	/* form based css for use with material ui inputs */
+	.tsd-form-row {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		margin-bottom: 0.5rem;
+
+		> div {
+			flex-grow: 1;
+			text-align: left;
+		}
+	}
+
+	/* override of input styling to match Salient theme in wordpress */
+
+	.md-btn--text {
+		font-size: 16px;
+		padding: 16px 23px;
+		height: auto;
+		border-radius: 200px;
+	}
+
+	@mixin input-label {
+		font-family: "Varela Round", sans-serif;
+		font-size: 20px;
+		line-height: 32px;
+		color: black;
+	}
+
+	@mixin input-field {
+		padding: 10px;
+		background-color: rgba(0, 0, 0, 0.035);
+		border: none;
+		color: #555;
+		font-family: "Varela Round", sans-serif;
+		font-size: 16px;
+		line-height: 24px;
+		border-bottom: 2px solid #e0e0e0;
+		-webkit-transition: border-color 0.2s ease;
+		transition: border-color 0.2s ease;
+		border-radius: 0;
+	}
+
+	.tsd-react-datepicker-container label {
+		@include input-label;
+	}
+
+	input[type="text"].date-entry {
+		@include input-field;
+	}
+
+	fieldset.md-selection-control-group {
+		padding-left: 0;
+
+		legend {
+			@include input-label;
+			margin-bottom: 0;
+		}
+		.md-selection-control-label {
+			font-size: 16px;
+		}
+	}
+
+	.md-switch-container {
+		label {
+			font-family: "Varela Round", sans-serif;
+			font-size: 16px;
+		}
+	}
+
+	.md-select-field__toggle {
+		label {
+			@include input-label;
+			top: -42px;
+		}
+
+		.md-select-field {
+			margin-top: 30px;
+		}
+
+		.md-icon-text {
+			@include input-field;
+			padding: 6px 16px 6px 10px;
+			border: 2px solid #e0e0e0;
+		}
+
+		.md-icon {
+			@include input-field;
+			font-family: "Material Icons";
+			padding: 6px 10px;
+			border: 2px solid #e0e0e0;
+		}
+
+		hr {
+			display: none;
+		}
+	}
+
+	.md-text-field-container {
+		label {
+			@include input-label;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="url"],
+		input[type="number"],
+		textarea {
+			@include input-field;
+			margin-top: 46px;
+		}
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="password"]:focus,
+		input[type="tel"]:focus,
+		input[type="url"]:focus,
+		input[type="number"]:focus,
+		textarea:focus {
+			border-color: #26a65b;
+		}
+		hr.md-divider--text-field {
+			display: none;
+		}
+		.md-text-field-message-container.md-text--error {
+			font-size: 16px;
+		}
+	}
+	.textarea {
+		.md-text-field-multiline-container.md-text-field--floating-margin {
+			margin: 0;
+		}
+		textarea {
+			padding: 16px;
+		}
+		.md-text-field-message-container.md-text-field-message-container--count-only {
+			margin-top: 42px;
+			padding-right: 80px;
+		}
+	}
+}
+.button-section button {
+	margin: 1em;
 }

@@ -10,6 +10,7 @@ const Input = props => {
 		inpType,
 		performErrCheck,
 		onBlur,
+		maxLength,
 		onChange,
 		required,
 		...rest
@@ -80,10 +81,11 @@ const Input = props => {
 		<div className="input-div">
 			<TextField
 				error={errFlg}
+				errMsg={errMsg}
 				onBlur={handleOnBlur}
 				onChange={handleChange}
 				onKeyDown={handleKeyDown}
-				errMsg={errMsg}
+				maxLength={maxLength}
 				{...rest}
 			/>
 		</div>

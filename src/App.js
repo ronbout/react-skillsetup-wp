@@ -4,7 +4,8 @@ import "./css/styles.css";
 import "./css/app.css";
 
 import SkillSetup from "components/SkillSetup/";
-/* 
+
+/*
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -33,23 +34,17 @@ library.add(
 	faArrowsAltV,
 	faCogs
 );
- */
+*/
+
 // setup global api url
-// if not on my dev, use remote api
-// const API_LOC = "local";
-// const API_LOC = "local";
-const API_LOC = "local";
+// will be coming from wp react page
+// through window.apiLoc
 
-if (API_LOC === "local") {
-	window.imgLoc = "http://localhost/3sixd/imgs/";
-	window.apiUrl = "http://localhost/3sixd/api/";
-} else {
-	window.imgLoc = "http://13.90.143.153/3sixd/imgs/";
-	window.apiUrl = "http://13.90.143.153/3sixd/api/";
-}
+const API_HOST = window.apiLoc === "local" ? "localhost" : "13.90.143.153";
 
-//window.resumeUrl = "http://localhost/3sixd/resume-build/resume-pdf.php";
-window.resumeUrl = "http://13.90.143.153/3sixd/resume-build/resume-pdf.php";
+window.imgLoc = `http://${API_HOST}/3sixd/imgs/`;
+window.apiUrl = `http://${API_HOST}/3sixd/api/`;
+window.resumeUrl = `http://${API_HOST}/3sixd/resume-build/resume-pdf.php`;
 
 class App extends Component {
 	render() {

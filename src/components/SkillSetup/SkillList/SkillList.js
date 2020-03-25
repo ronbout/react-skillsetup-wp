@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import Chip from "styledComponents/Chip";
-import SkillSearchContainer from "components/search/SkillSearch/";
-import MakePopup from "components/hoc/MakePopup";
-import dataFetch from "assets/js/dataFetch";
+import SkillSearchContainer from "../../search/SkillSearch/";
+import MakePopup from "../../hoc/MakePopup";
+import dataFetch from "../../../assets/js/dataFetch";
 
 import "./css/skillList.css";
 
 const SkillSearchPopup = MakePopup(
 	SkillSearchContainer,
 	{
-		right: "100px",
-		top: "100px",
-		width: "344px"
+		right: "60px",
+		top: "152px",
+		width: "344px",
+		borderRadius: "20px"
 	},
 	true
 );
 
-const SkillList = props => {
-	const [dispSkillSearchFlag, setDispSkillSearchFlag] = useState(false);
+const SkillList = ({
+	skills,
+	candId,
+	handleSkillsChange,
+	editFlag,
+	dispSearch = true
+}) => {
+	const [dispSkillSearchFlag, setDispSkillSearchFlag] = useState(dispSearch);
 	const [skillDrag, setSkillDrag] = useState(false);
 
 	const handleOpenSkillSearch = () => {
@@ -27,7 +34,7 @@ const SkillList = props => {
 	const handleAddSkill = async skillInfo => {
 		// check for duplicate
 		if (
-			props.skills.some(skill => {
+			skills.some(skill => {
 				return skill.id === skillInfo.id;
 			})
 		)
@@ -42,11 +49,11 @@ const SkillList = props => {
 		 *
 		 *
 		 */
-		const csId = await getCandidateSkillId(props.candId, skillInfo.id);
+		const csId = await getCandidateSkillId(candId, skillInfo.id);
 		skillInfo.candidateSkillId = csId;
-		let tmpSkills = props.skills.slice();
+		let tmpSkills = skills.slice();
 		tmpSkills.push(skillInfo);
-		props.handleSkillsChange(tmpSkills);
+		handleSkillsChange(tmpSkills);
 	};
 
 	const getCandidateSkillId = async (candId, skillId) => {
@@ -61,9 +68,9 @@ const SkillList = props => {
 	};
 
 	const handleDelSkill = ndx => {
-		let tmpSkills = props.skills.slice();
+		let tmpSkills = skills.slice();
 		tmpSkills.splice(ndx, 1);
-		props.handleSkillsChange(tmpSkills);
+		handleSkillsChange(tmpSkills);
 	};
 
 	const handleCloseSkillSearch = () => {
@@ -101,22 +108,22 @@ const SkillList = props => {
 			onDragEnd={handleDragEnd}
 			onDrop={handleSkillDrop}
 		>
-			{/*props.editFlag ? <p>Edit Skills</p> : <p>Skills</p>*/}
+			{/*editFlag ? <p>Edit Skills</p> : <p>Skills</p>*/}
 
 			<div className="skills-list">
-				{props.skills &&
-					props.skills.map((skill, ndx) => {
+				{skills &&
+					skills.map((skill, ndx) => {
 						return (
 							<Chip
 								id={skill.id}
 								key={skill.id}
 								label={skill.name}
-								removable={props.editFlag}
+								removable={editFlag}
 								onClick={() => handleDelSkill(ndx)}
 							/>
 						);
 					})}
-				{props.editFlag && !dispSkillSearchFlag && (
+				{editFlag && !dispSkillSearchFlag && (
 					<React.Fragment>
 						<Chip
 							id="btn-add-skill"

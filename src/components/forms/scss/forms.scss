@@ -19,23 +19,6 @@
 	margin: 1rem auto;
 }
 
-/* form based css for use with material design inputs */
-.tsd-form-row {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	margin-bottom: 0.5rem;
-
-	> div {
-		flex-grow: 1;
-		text-align: left;
-	}
-}
-
-.input-div {
-	margin: 0 8px;
-}
-
 .warning {
 	label {
 		top: 5px;

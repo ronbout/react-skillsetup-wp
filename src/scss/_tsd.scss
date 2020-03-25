@@ -1,47 +1,80 @@
 // first attempt at creating some standard css for he project
 // all classes will use the 'tsd-' prefix for namespacing
 
-.tsd-container {
-	width: 100%;
-	padding: 1em;
-	margin: auto;
-}
+#tsd-react-root {
+	.tsd-container {
+		width: 100%;
+		padding: 1em;
+		margin: auto;
+	}
 
-.tsd-card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
+	.tsd-card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
 
-.tsd-vdiv {
-	width: 2px;
-	margin: 20px 8px 0;
-	padding: 0 !important;
-	background: blue;
-}
+	.tsd-vdiv {
+		width: 2px;
+		margin: 20px 8px 0;
+		padding: 0 !important;
+		background: blue;
+	}
 
-.tsd-light-hdiv {
-	height: 1px;
-	margin: 8px 20px;
-	padding: 0 10px !important;
-	background: #ddd;
-}
+	.tsd-light-hdiv {
+		height: 1px;
+		margin: 8px 20px;
+		padding: 0 10px !important;
+		background: #ddd;
+	}
 
-.tsd-hdiv {
-	height: 2px;
-	margin: 8px 20px;
-	padding: 0 !important;
-	background: blue;
-}
+	.tsd-hdiv {
+		height: 2px;
+		margin: 8px 20px;
+		padding: 0 !important;
+		background: blue;
+	}
 
-.tsd-bargraph {
-	height: 2em;
-	margin: 8px 8px;
-	padding: 0 !important;
-	background: white;
-	border: 1px solid black;
-}
+	.tsd-bargraph {
+		height: 2em;
+		margin: 8px 8px;
+		padding: 0 !important;
+		background: white;
+		border: 1px solid black;
+	}
 
-.tsd-bargraph-span {
-	height: 2em;
-	display: block;
-	background: gray;
+	.tsd-bargraph-span {
+		height: 2em;
+		display: block;
+		background: gray;
+	}
+
+	/* form based css for use with material design inputs */
+	.tsd-form-row {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		margin-bottom: 0.5rem;
+
+		> div {
+			flex-grow: 1;
+			text-align: left;
+		}
+	}
+
+	.input-div {
+		margin: 0 8px;
+	}
+
+	.tsd-form-section {
+		width: 100%;
+
+		h2 {
+			text-align: left;
+			font-weight: bold;
+		}
+
+		.tsd-form-row {
+			width: 86%;
+			margin: 0 auto;
+		}
+	}
 }

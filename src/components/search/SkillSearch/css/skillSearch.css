@@ -1,7 +1,8 @@
 .skill-search {
   background: #eaeaea;
   min-width: 345px;
-  max-height: 585px;
+  max-height: 665px;
+  border-radius: 20px;
 }
 
 .skill-search .search-field-div {

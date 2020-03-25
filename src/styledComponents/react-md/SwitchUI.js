@@ -15,7 +15,7 @@ const SwitchUI = ({
 			type="switch"
 			label={label}
 			name={name}
-			defaultChecked={checked}
+			checked={checked}
 			labelBefore={labelPlacement !== "end"}
 			{...rest}
 		/>

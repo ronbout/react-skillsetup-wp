@@ -1,9 +1,11 @@
+/* SkillCrudContainer.js */
 import React, { Component } from "react";
-
 import SkillCrudForm from "./SkillCrudForm";
 import UserModalMsg from "components/UserModalMsg";
 import { objCopy, deepCompare } from "assets/js/library";
 import dataFetch from "assets/js/dataFetch";
+import { isEmptyObject } from "assets/js/library";
+import Snackbar from "styledComponents/Snackbar";
 import getSkillsFromTree from "../getSkillsFromTree";
 
 const API_SKILL = "skills";
@@ -33,18 +35,28 @@ class SkillCrudContainer extends Component {
 
 		this.state = {
 			...clearFormFields,
-			errMsg: "",
-			userMsg: "",
-			dispUserMsg: false,
-			dispErrMsg: false,
 			dragTag: false,
 			dragSkill: this.props.dragSkill ? this.props.dragSkill : false,
 			tabIndex: TECHTAGS_NDX,
 			apiBase: window.apiUrl,
-			dispModalMsg: false
+			dispModalMsg: false,
+			toast: {}
 		};
 		this.state.origForm = objCopy(this.state.formFields);
 	}
+
+	btns = [
+		{
+			display: "Yes",
+			action: this.clearForm
+		},
+		{
+			display: "No",
+			action: this.closeModalMsg
+		}
+	];
+
+	modalMsgBody = "Do you still want to clear the form?";
 
 	componentDidUpdate(prevProps) {
 		// Typical usage (don't forget to compare props):
@@ -61,8 +73,7 @@ class SkillCrudContainer extends Component {
 			this.setState({
 				formFields: { ...formFields },
 				origForm: { ...objCopy(formFields) },
-				errMsg: "",
-				userMsg: ""
+				toast: {}
 			});
 		}
 
@@ -104,10 +115,7 @@ class SkillCrudContainer extends Component {
 
 	handleSubmit = async event => {
 		event.preventDefault();
-
-		// clear out any error msg
-		this.setState({ errMsg: "", userMsg: "" });
-
+		this.closeToast();
 		let body = {
 			...this.state.formFields
 		};
@@ -119,40 +127,35 @@ class SkillCrudContainer extends Component {
 		const result = await dataFetch(endpoint, "", httpMethod, body);
 		// figure out what to do here
 		if (result.error) {
-			this.setState({
-				errMsg:
-					result.errorCode === 45001
-						? `Skill ${this.state.formFields.name} already exists.`
-						: "An unknown error has occurred",
-				dispErrMsg: true
-			});
+			const errMsg =
+				result.errorCode === 45001
+					? `Skill ${this.state.formFields.name} already exists.`
+					: "An unknown error has occurred";
 			console.log("Error update Skill: ", result);
+			this.addToast(errMsg, "Close", false);
 		} else {
 			// success.  let user know and clear out form
 			const skillName = this.state.formFields.name;
-			this.handleClear();
-			this.setState({
-				userMsg: `Skill "${skillName}" has been ${
-					httpMethod === "post" ? "created." : "updated."
-				}`,
-				dispUserMsg: true
-			});
+			this.handleClear(false);
+			const userMsg = `${skillName} has been ${
+				httpMethod === "post" ? "created." : "updated."
+			}`;
+			this.addToast(userMsg);
 		}
 	};
 
-	handleInputChange = event => {
-		const target = event.target;
-		const value = target.type === "checkbox" ? target.checked : target.value;
+	handleInputChange = (value, name) => {
+		// const value = target.type === "checkbox" ? target.checked : target.value;
 
 		// check for changing edit mode by a change in the name field
-		target.name === "name" &&
+		name === "name" &&
 			this.props.handleChangeMode(value === "" ? 0 : this.state.tabIndex + 1);
 
 		let errs = {};
 		this.setState({
 			formFields: {
 				...this.state.formFields,
-				[target.name]: value
+				[name]: value
 			},
 			...errs
 		});
@@ -195,10 +198,28 @@ class SkillCrudContainer extends Component {
 		});
 	};
 
-	handleClear = () => {
+	handleClear = (checkDirtyFlg = true) => {
 		// check for dirty form
-		if (this.checkDirtyForm()) return;
+		if (checkDirtyFlg && this.checkDirtyForm()) return;
 		this.clearForm();
+	};
+
+	handleCancel = () => {
+		this.btns[0] = {
+			display: "Yes",
+			action: this.cancelForm
+		};
+		this.modalMsgBody = "Do you want to cancel your changes?";
+		this.openModalMsg();
+	};
+
+	cancelForm = () => {
+		this.setState(prev => {
+			return {
+				formFields: { ...objCopy(prev.origForm) },
+				dispModalMsg: false
+			};
+		});
 	};
 
 	clearForm = () => {
@@ -214,12 +235,17 @@ class SkillCrudContainer extends Component {
 		});
 	};
 
-	checkDirtyForm = () => {
+	checkDirtyForm = (openModal = true) => {
 		const dirty = deepCompare(this.state.origForm, this.state.formFields)
 			? false
 			: true;
 		console.log("form is dirty: ", dirty);
-		if (dirty) {
+		if (dirty && openModal) {
+			this.btns[0] = {
+				display: "Yes",
+				action: this.clearForm
+			};
+			this.modalMsgBody = "Do you still want to clear the form?";
 			this.openModalMsg();
 		}
 		return dirty;
@@ -237,16 +263,14 @@ class SkillCrudContainer extends Component {
 		});
 	};
 
-	btns = [
-		{
-			display: "Yes",
-			action: this.clearForm
-		},
-		{
-			display: "No",
-			action: this.closeModalMsg
-		}
-	];
+	addToast = (text, action, autoHide = true, timeout = null) => {
+		const toast = { text, action, autoHide, timeout };
+		this.setState({ toast });
+	};
+
+	closeToast = () => {
+		this.setState({ toast: {} });
+	};
 
 	handleAddTag = tagInfo => {
 		let techtags = this.state.formFields.techtags;
@@ -367,12 +391,14 @@ class SkillCrudContainer extends Component {
 					handleInputChange={this.handleInputChange}
 					handleDelRelatedSkill={this.handleDelRelatedSkill}
 					handleClear={this.handleClear}
+					handleCancel={this.handleCancel}
 					handleAddTag={this.handleAddTag}
 					handleAddRelatedSkill={this.handleAddRelatedSkill}
 					handleTagStartDrag={this.handleTagStartDrag}
 					handleDragOver={this.handleDragOver}
 					handleTagDrop={this.handleTagDrop}
 					handleSkillDrop={this.handleSkillDrop}
+					checkDirtyForm={this.checkDirtyForm}
 					{...this.props}
 				/>
 				{this.state.dispModalMsg && (
@@ -380,11 +406,20 @@ class SkillCrudContainer extends Component {
 						<UserModalMsg
 							heading="Warning"
 							subHeading="You have unsaved changes"
-							msgBody="Do you still want to clear the form?"
+							msgBody={this.modalMsgBody}
 							btns={this.btns}
 							closeModalMsg={this.closeModalMsg}
 						/>
 					</div>
+				)}
+				{isEmptyObject(this.state.toast) || (
+					<Snackbar
+						text={this.state.toast.text}
+						action={this.state.toast.action}
+						autohide={this.state.toast.autoHide}
+						timeout={this.state.toast.timeout}
+						onDismiss={this.closeToast}
+					/>
 				)}
 			</React.Fragment>
 		);

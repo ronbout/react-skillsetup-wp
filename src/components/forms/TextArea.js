@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TextAreaBase from "styledComponents/TextAreaBase";
 // import { checkValidInput } from "./checkValidForm";
-import ErrorMsg from "./ErrorMsg";
+// import ErrorMsg from "./ErrorMsg";
 
 const Input = props => {
 	const [errFlg, setErrFlg] = useState(false);
@@ -12,6 +12,7 @@ const Input = props => {
 		performErrCheck,
 		onBlur,
 		required,
+		maxLength,
 		rows = 1,
 		...rest
 	} = props;
@@ -51,23 +52,27 @@ const Input = props => {
 	};
 
 	const handleKeyDown = ev => {
-		const key = ev.key;
-		if (key === "Enter") {
-			ev.preventDefault();
-		}
+		// const key = ev.key;
+		// if (key === "Enter") {
+		// 	ev.preventDefault();
+		// }
 	};
 
 	return (
-		<div className="textarea MuiFormControl-root MuiTextField-root">
-			<TextAreaBase
-				id={id}
-				error={errFlg}
-				onBlur={handleOnBlur}
-				onKeyDown={handleKeyDown}
-				rows={rows}
-				{...rest}
-			/>
-			<ErrorMsg errMsg={errMsg} />
+		<div className="input-div">
+			<div className="textarea MuiFormControl-root MuiTextField-root">
+				<TextAreaBase
+					id={id}
+					error={errFlg}
+					errMsg={errMsg}
+					onBlur={handleOnBlur}
+					onKeyDown={handleKeyDown}
+					rows={rows}
+					onKeyPress={handleKeyDown}
+					maxLength={maxLength}
+					{...rest}
+				/>
+			</div>
 		</div>
 	);
 };

@@ -233,7 +233,8 @@ export const useForm = (startValues, clearValues, submitCb, validCb) => {
 						btn1 = {
 							...btn1,
 							action: () => {
-								onCancel();
+								//onCancel();
+								cancelForm();
 								setDispModalMsg(false);
 							}
 						};
@@ -248,6 +249,7 @@ export const useForm = (startValues, clearValues, submitCb, validCb) => {
 				btnType="secondary"
 				onClick={onClick}
 				onMouseDown={onClick}
+				disabled={onCancel === cancelForm && !checkDirtyForm()}
 				{...props}
 			>
 				{children}

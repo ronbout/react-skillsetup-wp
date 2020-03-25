@@ -51,7 +51,7 @@ export const InpString = props => {
 		value,
 		onBlur = null,
 		minlength = null,
-		maxlength = null,
+		maxLength = null,
 		required = false,
 		...rest
 	} = props;
@@ -80,14 +80,6 @@ export const InpString = props => {
 				setErrMsg("");
 			}
 		}
-		if (maxlength !== null && !isNaN(maxlength) && val.length > maxlength) {
-			setErrMsg(`Max characters: ${maxlength}`);
-			return;
-		} else {
-			if (errMsg) {
-				setErrMsg("");
-			}
-		}
 	};
 
 	const handleChange = ev => {
@@ -109,11 +101,11 @@ export const InpString = props => {
 	};
 
 	const handleInput = ev => {
-		// check for maxlength so that it does not go over
+		// check for maxLength so that it does not go over
 		const inpValue = ev.target.value;
-		if (maxlength && inpValue.length > maxlength) {
-			ev.target.value = ev.target.value.substring(0, maxlength);
-			setErrMsg(`Max characters: ${maxlength}`);
+		if (maxLength && inpValue.length > maxLength) {
+			ev.target.value = ev.target.value.substring(0, maxLength);
+			setErrMsg(`Max characters: ${maxLength}`);
 		}
 	};
 
@@ -126,6 +118,7 @@ export const InpString = props => {
 			required={required}
 			onBlur={onBlur}
 			onInput={handleInput}
+			maxLength={maxLength}
 			performErrCheck={performErrCheck}
 			errMsg={errMsg}
 			{...rest}
@@ -144,6 +137,7 @@ export const InpTextAsNumber = props => {
 		onBlur = null,
 		min = null,
 		max = null,
+		maxLength,
 		required = false,
 		...rest
 	} = props;
@@ -202,6 +196,7 @@ export const InpTextAsNumber = props => {
 			onChange={handleChange}
 			required={required}
 			onInput={handleInput}
+			maxLength={maxLength}
 			performErrCheck={performErrCheck}
 			onBlur={onBlur}
 			errMsg={errMsg}
@@ -284,7 +279,14 @@ export const InpNumber = props => {
  */
 export const InpEmail = props => {
 	const { state } = useContext(FormsContext);
-	const { name, value, onBlur = null, required = false, ...rest } = props;
+	const {
+		name,
+		value,
+		onBlur = null,
+		required = false,
+		maxLength,
+		...rest
+	} = props;
 	const propertyName = convertNameToProperty(name);
 	const [errMsg, setErrMsg] = useState(
 		state.errMsg[propertyName] ? state.errMsg[propertyName] : ""
@@ -327,6 +329,7 @@ export const InpEmail = props => {
 			onChange={handleChange}
 			required={required}
 			performErrCheck={performErrCheck}
+			maxLength={maxLength}
 			onBlur={onBlur}
 			errMsg={errMsg}
 			{...rest}
@@ -339,7 +342,14 @@ export const InpEmail = props => {
  */
 export const InpUrl = props => {
 	const { state } = useContext(FormsContext);
-	const { name, value, onBlur = null, required = false, ...rest } = props;
+	const {
+		name,
+		value,
+		onBlur = null,
+		required = false,
+		maxLength,
+		...rest
+	} = props;
 	const propertyName = convertNameToProperty(name);
 	const [errMsg, setErrMsg] = useState(
 		state.errMsg[propertyName] ? state.errMsg[propertyName] : ""
@@ -380,6 +390,7 @@ export const InpUrl = props => {
 			onChange={handleChange}
 			required={required}
 			performErrCheck={performErrCheck}
+			maxLength={maxLength}
 			onBlur={onBlur}
 			errMsg={errMsg}
 			{...rest}
@@ -397,7 +408,7 @@ export const InpPassword = props => {
 		value,
 		onBlur = null,
 		minlength = null,
-		maxlength = null,
+		maxLength = null,
 		required = false,
 		...rest
 	} = props;
@@ -426,14 +437,6 @@ export const InpPassword = props => {
 				setErrMsg("");
 			}
 		}
-		if (maxlength !== null && !isNaN(maxlength) && val.length > maxlength) {
-			setErrMsg(`Max characters: ${maxlength}`);
-			return;
-		} else {
-			if (errMsg) {
-				setErrMsg("");
-			}
-		}
 	};
 
 	const handleChange = ev => {
@@ -449,6 +452,7 @@ export const InpPassword = props => {
 			onChange={handleChange}
 			required={required}
 			performErrCheck={performErrCheck}
+			maxLength={maxLength}
 			onBlur={onBlur}
 			errMsg={errMsg}
 			{...rest}
@@ -475,7 +479,7 @@ export const InpDate = props => {
 		state.errMsg[propertyName] ? state.errMsg[propertyName] : ""
 	);
 	const [dateVal, setDateVal] = useState(
-		Date.parse(value) ? createDate(value) : ""
+		Date.parse(value) ? createDate(value) : null
 	);
 
 	useEffect(() => {
@@ -489,7 +493,7 @@ export const InpDate = props => {
 	}, [state.resetErrMsg, errMsg]);
 
 	useEffect(() => {
-		setDateVal(Date.parse(value) ? createDate(value) : "");
+		setDateVal(Date.parse(value) ? createDate(value) : null);
 	}, [value]);
 
 	const minAdjDate = minDate ? createDate(minDate) : null;
@@ -535,13 +539,16 @@ export const InpDate = props => {
 		// }
 	};
 
-	const handleChange = inpDate => {
-		const tmp = inpDate.split("/");
-		const tmpDate = `${tmp[2]}-${tmp[0].padStart(2, "0")}-${tmp[1].padStart(
-			2,
-			"0"
-		)}`;
-		const date = createDate(tmpDate);
+	const handleChange = date => {
+		// console.log("date handlechange typeof inpDate: ", typeof inpDate);
+		// console.log("date handlechange inpDate: ", inpDate);
+		// const tmp = inpDate.split("/");
+		// const tmpDate = `${tmp[2]}-${tmp[0].padStart(2, "0")}-${tmp[1].padStart(
+		// 	2,
+		// 	"0"
+		// )}`;
+		// const date = createDate(tmpDate);
+		// setDateVal(date);
 		setDateVal(date);
 		if (errMsg) performErrCheck(date);
 		// unlike EVERY other onChange behavior, this does not
@@ -577,7 +584,7 @@ export const InpPhone = props => {
 		value,
 		onBlur = null,
 		minlength = null,
-		maxlength = null,
+		maxLength = null,
 		required = false,
 		...rest
 	} = props;
@@ -606,14 +613,6 @@ export const InpPhone = props => {
 				setErrMsg("");
 			}
 		}
-		if (maxlength !== null && !isNaN(maxlength) && val.length > maxlength) {
-			setErrMsg(`Max characters: ${maxlength}`);
-			return;
-		} else {
-			if (errMsg) {
-				setErrMsg("");
-			}
-		}
 	};
 
 	const handleChange = ev => {
@@ -622,11 +621,11 @@ export const InpPhone = props => {
 	};
 
 	const handleInput = ev => {
-		// check for maxlength so that it does not go over
+		// check for maxLength so that it does not go over
 		const inpValue = ev.target.value;
-		if (maxlength && inpValue.length > maxlength) {
-			ev.target.value = ev.target.value.substring(0, maxlength);
-			setErrMsg(`Max characters: ${maxlength}`);
+		if (maxLength && inpValue.length > maxLength) {
+			ev.target.value = ev.target.value.substring(0, maxLength);
+			setErrMsg(`Max characters: ${maxLength}`);
 		}
 	};
 
@@ -638,6 +637,7 @@ export const InpPhone = props => {
 			onChange={handleChange}
 			required={required}
 			onBlur={onBlur}
+			maxLength={maxLength}
 			onInput={handleInput}
 			performErrCheck={performErrCheck}
 			errMsg={errMsg}
@@ -667,7 +667,7 @@ export const InpZip = props => {
 		}
 	}, [state.resetErrMsg, errMsg]);
 
-	const maxlength = 12;
+	const maxLength = 12;
 
 	const performErrCheck = val => {
 		// check here for valid email
@@ -687,11 +687,11 @@ export const InpZip = props => {
 	};
 
 	const handleInput = ev => {
-		// check for maxlength so that it does not go over
+		// check for maxLength so that it does not go over
 		const inpValue = ev.target.value;
-		if (maxlength && inpValue.length > maxlength) {
-			ev.target.value = ev.target.value.substring(0, maxlength);
-			setErrMsg(`Max characters: ${maxlength}`);
+		if (maxLength && inpValue.length > maxLength) {
+			ev.target.value = ev.target.value.substring(0, maxLength);
+			setErrMsg(`Max characters: ${maxLength}`);
 		}
 	};
 
@@ -702,6 +702,7 @@ export const InpZip = props => {
 			value={value}
 			onChange={handleChange}
 			required={required}
+			maxLength={maxLength}
 			performErrCheck={performErrCheck}
 			onInput={handleInput}
 			onBlur={onBlur}
@@ -721,7 +722,7 @@ export const InpTextArea = props => {
 		value,
 		onBlur = null,
 		minlength = null,
-		maxlength = null,
+		maxLength = null,
 		required = false,
 		...rest
 	} = props;
@@ -750,14 +751,6 @@ export const InpTextArea = props => {
 				setErrMsg("");
 			}
 		}
-		if (maxlength !== null && !isNaN(maxlength) && val.length > maxlength) {
-			setErrMsg(`Max characters: ${maxlength}`);
-			return;
-		} else {
-			if (errMsg) {
-				setErrMsg("");
-			}
-		}
 	};
 	const handleChange = val => {
 		//checkRequired(ev.target.value);
@@ -771,11 +764,11 @@ export const InpTextArea = props => {
 	};
 
 	const handleInput = ev => {
-		// check for maxlength so that it does not go over
+		// check for maxLength so that it does not go over
 		const inpValue = ev.target.value;
-		if (maxlength && inpValue.length > maxlength) {
-			ev.target.value = ev.target.value.substring(0, maxlength);
-			setErrMsg(`Max characters: ${maxlength}`);
+		if (maxLength && inpValue.length > maxLength) {
+			ev.target.value = ev.target.value.substring(0, maxLength);
+			setErrMsg(`Max characters: ${maxLength}`);
 		}
 	};
 
@@ -788,6 +781,7 @@ export const InpTextArea = props => {
 			required={required}
 			onBlur={onBlur}
 			onInput={handleInput}
+			maxLength={maxLength}
 			performErrCheck={performErrCheck}
 			errMsg={errMsg}
 			{...rest}

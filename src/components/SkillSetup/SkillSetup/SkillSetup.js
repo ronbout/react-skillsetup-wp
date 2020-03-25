@@ -1,7 +1,8 @@
+/* SkillSetup.js */
 import React, { Component } from "react";
-import SkillSearchContainer from "../../search/SkillSearch/";
+import SkillSearchContainer from "components/search/SkillSearch/";
 import SkillCrudContainer from "../SkillCrud/";
-import dataFetch from "../../../assets/js/dataFetch";
+import dataFetch from "assets/js/dataFetch";
 import getSkillsFromTree from "../getSkillsFromTree";
 
 import "./css/skillSetup.css";
@@ -100,27 +101,24 @@ class SkillSetup extends Component {
 
 	render() {
 		return (
-			<main
-				className="container-fluid fs-main bg-highlight"
-				style={{ display: "flex", padding: "0.5rem" }}
-			>
-				<section className="skill-setup">
-					<div className="tab-section">
-						<SkillCrudContainer
-							skillInfo={this.state.skillInfo}
-							relatedSkill={this.state.relatedSkill}
-							handleChangeMode={this.handleChangeMode}
-							dragSkill={this.state.dragSkill}
-						/>
-					</div>
+			<main className="fs-main">
+				<section className="skill-crud-form">
+					<SkillCrudContainer
+						skillInfo={this.state.skillInfo}
+						relatedSkill={this.state.relatedSkill}
+						handleChangeMode={this.handleChangeMode}
+						dragSkill={this.state.dragSkill}
+					/>
 				</section>
-				<SkillSearchContainer
-					editMode={this.state.editMode}
-					searchButton={this.state.searchButton}
-					forceRefresh={this.state.forceRefresh}
-					handleSkillSelect={this.handleSkillSelect}
-					handleSkillStartDrag={this.handleSkillStartDrag}
-				/>
+				<section className="skill-search">
+					<SkillSearchContainer
+						editMode={this.state.editMode}
+						searchButton={this.state.searchButton}
+						forceRefresh={this.state.forceRefresh}
+						handleSkillSelect={this.handleSkillSelect}
+						handleSkillStartDrag={this.handleSkillStartDrag}
+					/>
+				</section>
 			</main>
 		);
 	}

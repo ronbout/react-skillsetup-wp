@@ -1,39 +1,161 @@
-.skill-container {
-  padding: 0 1em;
+#tsd-react-root {
+  /* form based css for use with material design inputs */
 }
 
-.skill-container h2 {
+#tsd-react-root .tsd-container {
+  width: 100%;
+  padding: 1em;
+  margin: auto;
+}
+
+#tsd-react-root .tsd-card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#tsd-react-root .tsd-vdiv {
+  width: 2px;
+  margin: 20px 8px 0;
+  padding: 0 !important;
+  background: blue;
+}
+
+#tsd-react-root .tsd-light-hdiv {
+  height: 1px;
+  margin: 8px 20px;
+  padding: 0 10px !important;
+  background: #ddd;
+}
+
+#tsd-react-root .tsd-hdiv {
+  height: 2px;
+  margin: 8px 20px;
+  padding: 0 !important;
+  background: blue;
+}
+
+#tsd-react-root .tsd-bargraph {
+  height: 2em;
+  margin: 8px 8px;
+  padding: 0 !important;
+  background: white;
+  border: 1px solid black;
+}
+
+#tsd-react-root .tsd-bargraph-span {
+  height: 2em;
+  display: block;
+  background: gray;
+}
+
+#tsd-react-root .tsd-form-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+#tsd-react-root .tsd-form-row > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: left;
+}
+
+#tsd-react-root .input-div {
+  margin: 0 8px;
+}
+
+#tsd-react-root .tsd-form-section {
+  width: 100%;
+}
+
+#tsd-react-root .tsd-form-section h2 {
+  text-align: left;
+  font-weight: bold;
+}
+
+#tsd-react-root .tsd-form-section .tsd-form-row {
+  width: 86%;
+  margin: 0 auto;
+}
+
+.fs-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 24px;
+  max-width: 1300px;
+  margin: 24px auto;
+}
+
+.fs-main section.skill-crud-form {
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  max-width: 810px;
+  font-size: 14px;
+  background: white;
+  color: #212529;
+  padding: 2em 2em 1em;
+  width: 760px;
+  margin: 0 auto;
+}
+
+.fs-main section.skill-crud-form div[class^="col-"] {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.fs-main section.skill-crud-form h2 {
   margin: 10px 0 20px;
   text-align: center;
 }
 
-.skill-container form {
-  background: #ddd;
-  color: #212529;
-  border: 1px solid black;
-  padding: 0.5em 0 1em;
+.fs-main section.skill-crud-form label.col-form-label {
+  text-align: right;
 }
 
-.skill-container form .form-group {
-  margin-bottom: 0.5em;
+.fs-main section.skill-crud-form textarea {
+  resize: none;
+  overflow: auto;
 }
 
-.fs-main {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.fs-main section.skill-crud-form .tabbed-section {
+  margin: 24px 0 36px;
 }
 
-.fs-main section.skill-setup {
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
-  max-width: 810px;
+.fs-main section.skill-crud-form .skill-related-section {
+  margin: 0 0 24px;
 }
 
-.fs-main section.skill-setup div[class^="col-"] {
-  padding-left: 8px;
-  padding-right: 8px;
+.fs-main section.skill-crud-form .skill-related-section div.row {
+  margin: 8px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section h2 {
+  margin-bottom: 4px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section h2 + p {
+  text-align: center;
+  padding-top: 0;
+  margin-bottom: 20px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-row {
+  margin: 0;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-row input {
+  margin: 0 4px;
 }
 
 .fs-main section.skill-search {
@@ -51,7 +173,7 @@
             flex-direction: column;
   }
   .fs-main section.skill-search,
-  .fs-main section.skill-setup {
+  .fs-main section.skill-crud-form {
     width: 100%;
     margin: auto;
   }
@@ -62,95 +184,6 @@
 
 .fs-btn-container button {
   margin: 0 1em;
-}
-
-section.skill-setup {
-  font-size: 15px;
-}
-
-section.skill-setup h1 {
-  font-size: 2.2em;
-  text-align: center;
-}
-
-section.skill-setup h2 {
-  font-size: 1.8em;
-  text-align: center;
-}
-
-section.skill-setup form,
-section.skill-setup div,
-section.skill-setup label,
-section.skill-setup input,
-section.skill-setup button,
-section.skill-setup select,
-section.skill-setup p {
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-section.skill-setup input[type="checkbox"] {
-  position: relative;
-  margin: 0 1em;
-  height: 20px;
-  width: 20px;
-}
-
-section.skill-setup label,
-section.skill-setup p {
-  margin: 0;
-  padding: calc(0.375rem + 1px) 0;
-}
-
-section.skill-setup option {
-  font-size: 0.96em;
-  line-height: 1.45;
-  padding-bottom: 2px;
-}
-
-section.skill-setup option {
-  overflow-x: hidden;
-}
-
-section.skill-setup input,
-section.skill-setup select {
-  padding: 0.2em 0.4em;
-  height: auto;
-}
-
-section.skill-setup label.col-form-label {
-  text-align: right;
-}
-
-section.skill-setup textarea {
-  resize: none;
-  overflow: auto;
-}
-
-section.skill-setup .skill-related-section {
-  margin: 0 0 24px;
-}
-
-section.skill-setup .skill-related-section div.row {
-  margin: 8px;
-}
-
-section.skill-setup .skill-related-section h2 {
-  margin-bottom: 4px;
-}
-
-section.skill-setup .skill-related-section h2 + p {
-  text-align: center;
-  padding-top: 0;
-  margin-bottom: 20px;
-}
-
-section.skill-setup .skill-related-section .related-row {
-  margin: 0;
-}
-
-section.skill-setup .skill-related-section .related-row input {
-  margin: 0 4px;
 }
 
 .fs-btn-container {

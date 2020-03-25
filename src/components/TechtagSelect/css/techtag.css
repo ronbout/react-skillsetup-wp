@@ -20,6 +20,10 @@
   padding: 2px;
 }
 
+.div-select-container .div-select:nth-child(even) {
+  background-color: #dfd;
+}
+
 .div-select-container .div-select.selected {
   background-color: #007bff;
   color: white;

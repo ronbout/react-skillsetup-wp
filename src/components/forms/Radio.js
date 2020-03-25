@@ -17,7 +17,7 @@ const Radio = props => {
 	};
 
 	return (
-		<div>
+		<div className="input-div">
 			<RadioBase
 				onBlur={handleOnBlur}
 				onKeyDown={handleKeyDown}

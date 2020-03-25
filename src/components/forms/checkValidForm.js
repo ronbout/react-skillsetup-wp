@@ -58,20 +58,13 @@ export const checkValidInput = (props, inpName) => {
 	) {
 		return `Max Value = ${props.max}`;
 	}
-	// check minlength/maxlength
+	// check minlength
 	if (
 		props.minlength &&
 		!isNaN(props.minlength) &&
 		props.value.length < props.minlength
 	) {
 		return `Min characters = ${props.minlength}`;
-	}
-	if (
-		props.maxlength &&
-		!isNaN(props.maxlength) &&
-		props.value.length > props.maxlength
-	) {
-		return `Max characters = ${props.maxlength}`;
 	}
 	// check here for props.maxDate/min
 	let testDt;

@@ -1,12 +1,24 @@
 import React, { useState } from "react";
 import { Snackbar as MdSnackbar } from "react-md";
 
-const Snackbar = ({ text, action = null, autohide = true, timeout = null }) => {
+const Snackbar = ({
+	text,
+	action = null,
+	autohide = true,
+	timeout = null,
+	style = {},
+	...rest
+}) => {
 	const [toasts, setToasts] = useState([{ text, action }]);
 
 	const removeToast = () => {
 		setToasts([]);
 		//closeCallBk();
+	};
+
+	const toastStyle = {
+		zIndex: 1100,
+		...style
 	};
 
 	return (
@@ -15,7 +27,9 @@ const Snackbar = ({ text, action = null, autohide = true, timeout = null }) => {
 			toasts={toasts}
 			autohide={autohide}
 			onDismiss={removeToast}
-			autohideTimeout={timeout || 3000}
+			autohideTimeout={timeout || 1500}
+			style={toastStyle}
+			{...rest}
 		/>
 	);
 };

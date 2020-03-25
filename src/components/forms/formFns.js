@@ -55,9 +55,10 @@ export function isEmail(email) {
 
 export function isUrl(url) {
 	if (url === "") return true;
+	const testUrl = url.toString();
 	const urlReg = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
 
-	return url.match(urlReg);
+	return testUrl.match(urlReg);
 }
 
 export function isZipcode(zip) {
