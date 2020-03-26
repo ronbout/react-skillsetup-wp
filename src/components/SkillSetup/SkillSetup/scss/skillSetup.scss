@@ -67,20 +67,25 @@
 			}
 		}
 	}
-	section.skill-search {
+	section.skill-search-container {
 		flex-grow: 1;
-		max-width: 320px;
+		max-width: 360px;
+
+		.skill-search {
+			position: fixed;
+			top: 156;
+		}
 	}
 
 	@media (max-width: 960px) {
 		flex-direction: column;
 
-		section.skill-search,
+		section.skill-search-container,
 		section.skill-crud-form {
 			width: 100%;
 			margin: auto;
 		}
-		section.skill-search {
+		section.skill-search-container {
 			margin: 2rem auto;
 		}
 	}

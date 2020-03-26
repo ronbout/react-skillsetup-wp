@@ -1,35 +1,56 @@
 @import "../../../../scss/mixins";
 
-.person-search {
-	background: #eaeaea;
-	min-width: 402px;
-	max-height: 605px;
-	padding: 1em 2em 2em;
+#tsd-react-root {
+	.person-search {
+		background: #eaeaea;
+		min-width: 402px;
+		max-height: 655px;
+		border-radius: 20px;
+		padding: 1em 2em 2em;
 
-	@include div-select(14px);
+		.md-card-title--primary {
+			padding-top: 0;
+		}
 
-	legend {
-		display: block;
-		width: auto;
-		padding: 0 5px;
-		margin-bottom: 0;
-		font-size: inherit;
-		line-height: inherit;
-		border: auto;
-		border-bottom: none;
-	}
+		.md-text-field-container {
+			label {
+				line-height: 24px;
+			}
 
-	fieldset {
-		border: 2px groove threeDface;
-		padding: 5px 14px;
-	}
-	.div-select-container {
-		margin: 1em 0;
-		height: 200px;
-		text-align: left;
-	}
+			input[type="text"] {
+				font-size: 14px;
+				padding: 6px;
+				margin-top: 36px;
+			}
+		}
 
-	button {
-		margin: 0 12px;
+		@include div-select(14px);
+
+		legend {
+			display: block;
+			width: auto;
+			padding: 0 5px;
+			margin-bottom: 0;
+			font-size: inherit;
+			line-height: inherit;
+			border: auto;
+			border-bottom: none;
+		}
+
+		fieldset {
+			border: 2px groove threeDface;
+			padding: 5px 14px;
+		}
+		.div-select-container {
+			margin: 1em 0;
+			height: 200px;
+			text-align: left;
+		}
+
+		.md-btn--text {
+			margin: 0 12px;
+			padding: 12px 14px;
+			font-size: 14px;
+		}
 	}
 }

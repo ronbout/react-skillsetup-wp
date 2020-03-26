@@ -1,11 +1,26 @@
-.company-search {
+#tsd-react-root .company-search {
   background: #eaeaea;
   min-width: 402px;
-  max-height: 605px;
+  max-height: 655px;
+  border-radius: 20px;
   padding: 1em 2em 2em;
 }
 
-.company-search .div-select-container {
+#tsd-react-root .company-search .md-card-title--primary {
+  padding-top: 0;
+}
+
+#tsd-react-root .company-search .md-text-field-container label {
+  line-height: 24px;
+}
+
+#tsd-react-root .company-search .md-text-field-container input[type="text"] {
+  font-size: 14px;
+  padding: 6px;
+  margin-top: 36px;
+}
+
+#tsd-react-root .company-search .div-select-container {
   font-size: 14px;
   color: #495057;
   background-color: #fff;
@@ -23,17 +38,17 @@
   overflow-y: auto;
 }
 
-.company-search .div-select-container .div-select {
+#tsd-react-root .company-search .div-select-container .div-select {
   padding: 2px;
   cursor: default;
 }
 
-.company-search .div-select-container .div-select.selected {
+#tsd-react-root .company-search .div-select-container .div-select.selected {
   background-color: #007bff;
   color: white;
 }
 
-.company-search legend {
+#tsd-react-root .company-search legend {
   display: block;
   width: auto;
   padding: 0 5px;
@@ -44,18 +59,20 @@
   border-bottom: none;
 }
 
-.company-search fieldset {
+#tsd-react-root .company-search fieldset {
   border: 2px groove threeDface;
   padding: 5px 14px;
 }
 
-.company-search .div-select-container {
+#tsd-react-root .company-search .div-select-container {
   margin: 1em 0;
   height: 200px;
   text-align: left;
 }
 
-.company-search button {
+#tsd-react-root .company-search .md-btn--text {
   margin: 0 12px;
+  padding: 12px 14px;
+  font-size: 14px;
 }
 /*# sourceMappingURL=companySearch.css.map */

@@ -110,7 +110,7 @@ const SkillCrudForm = props => {
 	const buttonSection = () => {
 		return (
 			<div className="fs-btn-container" style={{ textAlign: "center" }}>
-				<Button disabled={props.state.formFields.name === ""}>
+				<Button type="submit" disabled={props.state.formFields.name === ""}>
 					{props.state.formFields.id === "" ? "Add skill" : "Update skill"}
 				</Button>
 				<Button

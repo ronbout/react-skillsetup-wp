@@ -1,15 +1,40 @@
-.skill-search {
+#tsd-react-root div.skill-search {
   background: #eaeaea;
   min-width: 345px;
   max-height: 665px;
   border-radius: 20px;
+  padding: 0.5em 1em 0;
+  -webkit-box-shadow: rgba(150, 150, 150, 0.5) 10px 10px 6px 3px;
+          box-shadow: rgba(150, 150, 150, 0.5) 10px 10px 6px 3px;
 }
 
-.skill-search .search-field-div {
-  padding: 12px 0;
+#tsd-react-root div.skill-search #select-techtag-menu {
+  margin-bottom: 18px;
 }
 
-.skill-search .div-select-container {
+#tsd-react-root div.skill-search #select-techtag-menu label {
+  top: -22px;
+}
+
+#tsd-react-root div.skill-search #select-techtag-menu .md-select-field__toggle .md-select-field {
+  margin-top: 12px;
+}
+
+#tsd-react-root div.skill-search .md-card-title--primary {
+  padding-top: 12px;
+}
+
+#tsd-react-root div.skill-search .md-text-field-container label {
+  line-height: 24px;
+}
+
+#tsd-react-root div.skill-search .md-text-field-container input[type="text"] {
+  font-size: 14px;
+  padding: 6px;
+  margin-top: 36px;
+}
+
+#tsd-react-root div.skill-search .div-select-container {
   font-size: 14px;
   color: #495057;
   background-color: #fff;
@@ -27,17 +52,17 @@
   overflow-y: auto;
 }
 
-.skill-search .div-select-container .div-select {
+#tsd-react-root div.skill-search .div-select-container .div-select {
   padding: 2px;
   cursor: default;
 }
 
-.skill-search .div-select-container .div-select.selected {
+#tsd-react-root div.skill-search .div-select-container .div-select.selected {
   background-color: #007bff;
   color: white;
 }
 
-.skill-search .div-select-container {
+#tsd-react-root div.skill-search .div-select-container {
   -webkit-transition-property: height;
   transition-property: height;
   -webkit-transition-duration: 0.5s;
@@ -47,12 +72,16 @@
   margin: 18px 0 8px;
 }
 
-.skill-search #skill-search-row input {
+#tsd-react-root div.skill-search #skill-search-row input {
   display: inline-block;
   width: 85%;
 }
 
-.skill-search .search-skills-buttons button {
+#tsd-react-root div.skill-search .search-skills-buttons {
+  margin-top: 14px;
+}
+
+#tsd-react-root div.skill-search .search-skills-buttons button {
   margin: 0 12px;
 }
 /*# sourceMappingURL=skillSearch.css.map */

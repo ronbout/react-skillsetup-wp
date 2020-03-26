@@ -110,7 +110,7 @@ class SkillSetup extends Component {
 						dragSkill={this.state.dragSkill}
 					/>
 				</section>
-				<section className="skill-search">
+				<section className="skill-search-container">
 					<SkillSearchContainer
 						editMode={this.state.editMode}
 						searchButton={this.state.searchButton}
