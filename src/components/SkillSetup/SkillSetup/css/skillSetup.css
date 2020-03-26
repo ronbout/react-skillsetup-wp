@@ -167,7 +167,7 @@
 
 .fs-main section.skill-search-container .skill-search {
   position: fixed;
-  top: 156;
+  top: 156px;
 }
 
 @media (max-width: 960px) {
