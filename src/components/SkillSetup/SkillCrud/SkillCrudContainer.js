@@ -239,7 +239,6 @@ class SkillCrudContainer extends Component {
 		const dirty = deepCompare(this.state.origForm, this.state.formFields)
 			? false
 			: true;
-		console.log("form is dirty: ", dirty);
 		if (dirty && openModal) {
 			this.btns[0] = {
 				display: "Yes",

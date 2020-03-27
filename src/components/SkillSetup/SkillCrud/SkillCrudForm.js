@@ -14,6 +14,7 @@ import {
 import Button from "styledComponents/Button";
 
 const SkillCrudForm = props => {
+	const [dragOverClass, setDragOverClass] = React.useState("");
 	const tagsAndRelatedSkillsSection = () => {
 		return (
 			<div className="tabbed-section">
@@ -39,13 +40,28 @@ const SkillCrudForm = props => {
 		props.handleTabClick(activeNdx);
 	};
 
+	const handleDragOver = event => {
+		setDragOverClass("drag-over");
+		props.handleDragOver(event);
+	};
+
+	const handleSkillDrop = (skillFieldName, event) => {
+		props.handleSkillDrop(skillFieldName, event);
+		setDragOverClass("");
+	};
+
+	const handleDragLeave = event => {
+		setDragOverClass("");
+	};
+
 	const parentChildSkillsSection = (skillFieldName, dispName) => {
 		return (
 			<section className="skill-related-section">
 				<div
-					className="related-list"
-					onDragOver={props.handleDragOver}
-					onDrop={event => props.handleSkillDrop(skillFieldName, event)}
+					className={`related-list ${dragOverClass}`}
+					onDragOver={event => handleDragOver(event)}
+					onDrop={event => handleSkillDrop(skillFieldName, event)}
+					onDragLeave={event => handleDragLeave(event)}
 				>
 					<RelatedItemsList
 						heading={dispName}
@@ -54,7 +70,9 @@ const SkillCrudForm = props => {
 						handleDelItem={props.handleDelRelatedSkill}
 					/>
 					{props.state.formFields.name !== "" && (
-						<p>Drag and Drop from Skill Search List</p>
+						<p className={dragOverClass}>
+							Drag and Drop from Skill Search List
+						</p>
 					)}
 				</div>
 			</section>

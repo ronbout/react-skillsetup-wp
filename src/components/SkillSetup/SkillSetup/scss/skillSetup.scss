@@ -64,11 +64,30 @@
 				input {
 					margin: 0 4px;
 				}
+				.btn-danger {
+					cursor: pointer;
+				}
+			}
+			.related-list {
+				border: 1px solid grey;
+				padding: 5px;
+
+				p.drag-over {
+					margin-top: 24px;
+				}
+				&.drag-over {
+					background-color: #dfd;
+					padding-bottom: 20px;
+
+					& * {
+						pointer-events: none;
+					}
+				}
 			}
 		}
 	}
 	section.skill-search-container {
-		flex-grow: 1; 
+		flex-grow: 1;
 		max-width: 360px;
 
 		.skill-search {

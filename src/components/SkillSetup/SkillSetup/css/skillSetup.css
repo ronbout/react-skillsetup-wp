@@ -158,6 +158,28 @@
   margin: 0 4px;
 }
 
+.fs-main section.skill-crud-form .skill-related-section .related-row .btn-danger {
+  cursor: pointer;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-list {
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-list p.drag-over {
+  margin-top: 24px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-list.drag-over {
+  background-color: #dfd;
+  padding-bottom: 20px;
+}
+
+.fs-main section.skill-crud-form .skill-related-section .related-list.drag-over * {
+  pointer-events: none;
+}
+
 .fs-main section.skill-search-container {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
