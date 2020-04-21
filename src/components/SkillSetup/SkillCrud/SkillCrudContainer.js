@@ -25,8 +25,8 @@ const clearFormFields = {
 		childSkills: [],
 		parentTree: [],
 		childTree: [],
-		treeList: []
-	}
+		treeList: [],
+	},
 };
 
 class SkillCrudContainer extends Component {
@@ -40,7 +40,7 @@ class SkillCrudContainer extends Component {
 			tabIndex: TECHTAGS_NDX,
 			apiBase: window.apiUrl,
 			dispModalMsg: false,
-			toast: {}
+			toast: {},
 		};
 		this.state.origForm = objCopy(this.state.formFields);
 	}
@@ -48,12 +48,12 @@ class SkillCrudContainer extends Component {
 	btns = [
 		{
 			display: "Yes",
-			action: this.clearForm
+			action: this.clearForm,
 		},
 		{
 			display: "No",
-			action: this.closeModalMsg
-		}
+			action: this.closeModalMsg,
+		},
 	];
 
 	modalMsgBody = "Do you still want to clear the form?";
@@ -73,7 +73,7 @@ class SkillCrudContainer extends Component {
 			this.setState({
 				formFields: { ...formFields },
 				origForm: { ...objCopy(formFields) },
-				toast: {}
+				toast: {},
 			});
 		}
 
@@ -96,12 +96,12 @@ class SkillCrudContainer extends Component {
 
 		if (this.props.dragSkill !== prevProps.dragSkill) {
 			this.setState({
-				dragSkill: this.props.dragSkill
+				dragSkill: this.props.dragSkill,
 			});
 		}
 	}
 
-	handleTabClick = tabIndex => {
+	handleTabClick = (tabIndex) => {
 		if (tabIndex === this.state.tabIndex) return;
 		// if a skill name is present, we are in edit mode
 		// and need to pass the tab index to the search skills
@@ -109,15 +109,15 @@ class SkillCrudContainer extends Component {
 		const editMode = this.state.formFields.name === "" ? 0 : tabIndex + 1;
 		this.props.handleChangeMode(editMode);
 		this.setState({
-			tabIndex
+			tabIndex,
 		});
 	};
 
-	handleSubmit = async event => {
+	handleSubmit = async (event) => {
 		event.preventDefault();
 		this.closeToast();
 		let body = {
-			...this.state.formFields
+			...this.state.formFields,
 		};
 		// need to know if this is a new skill or update
 		// (post vs put)
@@ -155,9 +155,9 @@ class SkillCrudContainer extends Component {
 		this.setState({
 			formFields: {
 				...this.state.formFields,
-				[name]: value
+				[name]: value,
 			},
-			...errs
+			...errs,
 		});
 	};
 
@@ -178,7 +178,7 @@ class SkillCrudContainer extends Component {
 		let rTree = objCopy(this.state.formFields[treeName]);
 		const delSkill = rSkills.splice(ndx, 1);
 		rTree.splice(
-			rTree.findIndex(s => s.id === delSkill[0].id),
+			rTree.findIndex((s) => s.id === delSkill[0].id),
 			1
 		);
 		// treeList cannot be altered by just removing the one skill
@@ -193,8 +193,8 @@ class SkillCrudContainer extends Component {
 				...this.state.formFields,
 				[skillFieldName]: rSkills,
 				[treeName]: rTree,
-				treeList
-			}
+				treeList,
+			},
 		});
 	};
 
@@ -207,17 +207,17 @@ class SkillCrudContainer extends Component {
 	handleCancel = () => {
 		this.btns[0] = {
 			display: "Yes",
-			action: this.cancelForm
+			action: this.cancelForm,
 		};
 		this.modalMsgBody = "Do you want to cancel your changes?";
 		this.openModalMsg();
 	};
 
 	cancelForm = () => {
-		this.setState(prev => {
+		this.setState((prev) => {
 			return {
 				formFields: { ...objCopy(prev.origForm) },
-				dispModalMsg: false
+				dispModalMsg: false,
 			};
 		});
 	};
@@ -231,7 +231,7 @@ class SkillCrudContainer extends Component {
 			dispUserMsg: false,
 			dispErrMsg: false,
 			origForm: clearFormFields.formFields,
-			dispModalMsg: false
+			dispModalMsg: false,
 		});
 	};
 
@@ -242,7 +242,7 @@ class SkillCrudContainer extends Component {
 		if (dirty && openModal) {
 			this.btns[0] = {
 				display: "Yes",
-				action: this.clearForm
+				action: this.clearForm,
 			};
 			this.modalMsgBody = "Do you still want to clear the form?";
 			this.openModalMsg();
@@ -252,13 +252,13 @@ class SkillCrudContainer extends Component {
 
 	closeModalMsg = () => {
 		this.setState({
-			dispModalMsg: false
+			dispModalMsg: false,
 		});
 	};
 
 	openModalMsg = () => {
 		this.setState({
-			dispModalMsg: true
+			dispModalMsg: true,
 		});
 	};
 
@@ -271,12 +271,12 @@ class SkillCrudContainer extends Component {
 		this.setState({ toast: {} });
 	};
 
-	handleAddTag = tagInfo => {
+	handleAddTag = (tagInfo) => {
 		let techtags = this.state.formFields.techtags;
 		techtags.push(tagInfo);
 
 		this.setState({
-			formFields: { ...this.state.formFields }
+			formFields: { ...this.state.formFields },
 		});
 		return true;
 	};
@@ -316,7 +316,7 @@ class SkillCrudContainer extends Component {
 		let rTree = objCopy(this.state.formFields[treeName]);
 		const treeSkillInfo = {
 			...skillInfo,
-			[subFieldName]: newTrees[treeName]
+			[subFieldName]: newTrees[treeName],
 		};
 		rTree.push(treeSkillInfo);
 
@@ -331,43 +331,43 @@ class SkillCrudContainer extends Component {
 				...this.state.formFields,
 				[skillFieldName]: rSkills,
 				[treeName]: rTree,
-				treeList
-			}
+				treeList,
+			},
 		});
 		return true;
 	};
 
-	getAddedSkillTrees = async relatedSkillId => {
+	getAddedSkillTrees = async (relatedSkillId) => {
 		const endpoint = `${API_RELATED_SKILLS}/${relatedSkillId}`;
 		let result = await dataFetch(endpoint);
 		if (result.error) {
 			this.setState({
-				errMsg: "An unknown error has occurred"
+				errMsg: "An unknown error has occurred",
 			});
 			console.log(result);
 			return false;
 		} else {
-			return result;
+			return result[0];
 		}
 	};
 
-	handleTagStartDrag = tagInfo => {
+	handleTagStartDrag = (tagInfo) => {
 		this.setState({
-			dragTag: tagInfo
+			dragTag: tagInfo,
 		});
 	};
 
-	handleDragOver = event => {
+	handleDragOver = (event) => {
 		event.preventDefault && event.preventDefault();
 		return false;
 	};
 
-	handleTagDrop = event => {
+	handleTagDrop = (event) => {
 		event.preventDefault && event.preventDefault();
 		this.state.dragTag &&
 			this.handleAddTag(this.state.dragTag) &&
 			this.setState({
-				dragTag: false
+				dragTag: false,
 			});
 	};
 
@@ -376,7 +376,7 @@ class SkillCrudContainer extends Component {
 		this.state.dragSkill &&
 			this.handleAddRelatedSkill(skillField, this.state.dragSkill) &&
 			this.setState({
-				dragSkill: false
+				dragSkill: false,
 			});
 	};
 
